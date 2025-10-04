@@ -50,6 +50,57 @@
 
     <h2>Your solution for exercise</h2>
 
+    <script>
+        function add() {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const table = document.getElementById("table");
+            const row = table.insertRow(table.rows.length);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            cell1.innerHTML = firstName;
+            cell2.innerHTML = lastName;
+        }
+
+        function resetInput() {
+            document.getElementById("firstName").value = "";
+            document.getElementById("lastName").value = "";
+        }
+        function resettable() {
+
+            const table = document.getElementById("table");
+            for (let i = table.rows.length - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+        }
+    </script>
+
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="button" id="btnAdd" value="Add" onclick="add();">
+    <input type= button id="btnResetInput" value="Reset input" onclick="resetInput();">
+    <input type= button id="btnResettable" value="Reset table" onclick="resettable();">
+
+    <table id="table">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Jo</td>
+                <td>Bola</td>
+            </tr>
+    </table>
+
 </body>
 
 </html>
