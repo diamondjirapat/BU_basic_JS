@@ -46,7 +46,40 @@
 
 
     <h3>Your solution for assignment</h3>
+    <input id="todoInput" type="text" placeholder="Enter todo">
+      <button onclick="addtodo()">Add</button>
+      <button onclick="clearTodos()">Clear all todos</button>
 
+      <ul id="todoList"></ul>
+
+      <script>
+        const todoInput = document.getElementById('todoInput');
+        const todoList = document.getElementById('todoList');
+
+        function addtodo() {
+          const todoText = todoInput.value;
+
+          const list = document.createElement('li');
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.addEventListener('change', () => {
+            list.classList.toggle('completed', checkbox.checked);
+          });
+
+          const label = document.createElement('label');
+          label.textContent = todoText;
+
+          list.appendChild(checkbox);
+          list.appendChild(label);
+          todoList.appendChild(list);
+          todoInput.value = '';
+        }
+
+        function clearTodos() {
+          todoList.innerHTML = '';
+        }
+      </script>
 </body>
 
 </html>
